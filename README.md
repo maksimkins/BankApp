@@ -4,3 +4,4 @@ ORM: Dapper, EF Core;
 MVVM Pattern;
 WPF;
 SQL Server;
+Dependency Injection;
