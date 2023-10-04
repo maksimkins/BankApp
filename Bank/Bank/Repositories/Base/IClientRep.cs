@@ -11,8 +11,6 @@ namespace Bank.Repositories.Base;
 
 public interface IClientRep : IAccountManipulations
 {
-    const string connectionstring = "Server=localhost;Database=BankDb;Trusted_Connection=True;";
-
     public IEnumerable<Client> GetAll();
     public Client GetById(int id);
     public void Add(Client client);

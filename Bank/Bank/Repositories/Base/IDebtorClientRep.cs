@@ -9,8 +9,6 @@ namespace Bank.Repositories.Base;
 
 public interface IDebtorClientRep
 {
-    const string connectionstring = "Server=localhost;Database=BankDb;Trusted_Connection=True;";
-
     public IEnumerable<LoanClient> GetAll();
     public LoanClient GetById(int id);
     public void Add(LoanClient client);
