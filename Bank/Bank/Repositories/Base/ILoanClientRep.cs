@@ -12,5 +12,6 @@ public interface ILoanClientRep
     public IEnumerable<LoanClient> GetAll();
     public LoanClient GetById(int id);
     public void Add(LoanClient client);
-    public void PayForLoan(int id, decimal payment);
+    public void PayForLoan(int id, double payment);
+    public int GetIdByLoginPassword(string login, string password);
 }

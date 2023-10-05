@@ -14,4 +14,5 @@ public interface IClientRep : IAccountManipulations
     public IEnumerable<Client> GetAll();
     public Client GetById(int id);
     public void Add(Client client);
+    public int GetIdByLoginPassword(string login, string password);
 }

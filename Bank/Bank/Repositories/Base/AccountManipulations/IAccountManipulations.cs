@@ -8,7 +8,7 @@ namespace Bank.Repositories.Base.AccountManipulations;
 
 public interface IAccountManipulations
 {
-    public void AddToAccount(int id);
-    public void DeductToAccount(int id);
-    public void TransferAccount(int id, int idToTransfer);
+    public void AddToAccount(int id, double money);
+    public void DeductToAccount(int id, double money);
+    public void TransferAccount(int idHost, int idToTransfer, double money);
 }

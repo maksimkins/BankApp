@@ -9,8 +9,9 @@ namespace Bank.Repositories.Base;
 
 public interface IDebtorClientRep
 {
-    public IEnumerable<LoanClient> GetAll();
-    public LoanClient GetById(int id);
-    public void Add(LoanClient client);
-    public void PayForDebt(int id, decimal payment);
+    public IEnumerable<DebtorClient> GetAll();
+    public DebtorClient GetById(int id);
+    public void Add(DebtorClient client);
+    public void PayForDebt(int id, double payment);
+    public int GetIdByLoginPassword(string login, string password);
 }
