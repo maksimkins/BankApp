@@ -17,7 +17,11 @@ public class DebtorClient
     public int LoanClientId { get; set; }
     public LoanClient LoanClient { get; set; }
 
-    
+
+    public int ClientId { get; set; }
+    public Client Client { get; set; }
+
+
     //public DebtorClient()
     //{
     //    this.DebtToReturn += (base.Loan - base.PaidPartOfLoan);

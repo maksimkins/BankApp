@@ -8,7 +8,7 @@
     <Application.Resources>
         
         <DataTemplate DataType="{x:Type vm:HomeViewModel}">
-            <v:HomeView/>
+            <v:HomeVIew/>
         </DataTemplate>
         
     </Application.Resources>

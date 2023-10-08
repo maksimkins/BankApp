@@ -15,4 +15,5 @@ public interface IDebtorClientRep
     public void PayForDebt(int id, double payment);
     public int GetIdByLoginPassword(string login, string password);
     public Client ReturnAsClient(int id);
+    public IEnumerable<Client> ReturAllnAsClient();
 }

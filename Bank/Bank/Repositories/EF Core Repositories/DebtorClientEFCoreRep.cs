@@ -68,6 +68,17 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
         context.SaveChanges();
     }
 
+    public IEnumerable<Client> ReturAllnAsClient()
+    {
+        List<Client> clients = new List<Client>();
+
+        //foreach (var debtor in context.DebtorClients) 
+        //{
+        //    clients.Add(context.Clients.Where(c => c.Id == debtor.))
+        //} 
+        throw new Exception();
+    }
+
     public Client ReturnAsClient(int id)
     {
         DebtorClient dc = this.GetById(id);

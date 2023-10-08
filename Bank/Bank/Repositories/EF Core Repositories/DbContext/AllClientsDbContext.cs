@@ -39,6 +39,11 @@ public class AllClientsDbContext : DbContext
             .HasIndex(u => u.LoanClientId)
             .IsUnique();
 
+
+        modelBuilder.Entity<DebtorClient>()
+            .HasIndex(u => u.ClientId)
+            .IsUnique();
+
         base.OnModelCreating(modelBuilder);
     }
 }

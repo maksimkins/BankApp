@@ -42,6 +42,11 @@ public class LoanClientDappperRep : ILoanClientRep
         throw new NotImplementedException();
     }
 
+    public IEnumerable<Client> ReturAllnAsClient()
+    {
+        throw new NotImplementedException();
+    }
+
     public Client ReturnAsClient(int id)
     {
         throw new NotImplementedException();

@@ -15,5 +15,6 @@ public interface ILoanClientRep
     public void PayForLoan(int id, double payment);
     public int GetIdByLoginPassword(string login, string password);
     public Client ReturnAsClient(int id);
+    public IEnumerable<Client> ReturAllnAsClient();
 
 }

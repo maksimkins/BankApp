@@ -35,6 +35,11 @@ public class DebtorClientDapperRep : IDebtorClientRep
         throw new NotImplementedException();
     }
 
+    public IEnumerable<Client> ReturAllnAsClient()
+    {
+        throw new NotImplementedException();
+    }
+
     public Client ReturnAsClient(int id)
     {
         throw new NotImplementedException();

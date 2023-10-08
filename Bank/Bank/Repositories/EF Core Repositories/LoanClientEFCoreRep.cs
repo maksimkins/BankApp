@@ -57,6 +57,11 @@ public class LoanClientEFCoreRep : ILoanClientRep
         context.SaveChanges();
     }
 
+    public IEnumerable<Client> ReturAllnAsClient()
+    {
+        throw new NotImplementedException();
+    }
+
     public Client ReturnAsClient(int id)
     {
         LoanClient lc = this.GetById(id);

@@ -7,7 +7,32 @@
         mc:Ignorable="d"
         Height="450" Width="800"
         ResizeMode="NoResize">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+
+
+        <UniformGrid Margin="10" DockPanel.Dock="Left" Rows="1" Width="60" Height="400">
+            <!--<Button Content="Info" Command="{Binding InfoCommand}"/>
+            <Button Content="Teachers" Command="{Binding TeachersCommand}"/>
+            <Button Content="Groups" Command="{Binding GroupsCommand}"/>
+            <Button Content="Students" Command="{Binding StudentsCommand}"/>-->
+            <!--<TreeView ItemsSource="{Binding MainViewModel}">
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Names}" DataType="{x:Type local:PersonViewModel}">
+                        <TextBlock Text="{Binding CountryType}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.Resources>
+            </TreeView>-->
+
+
+        </UniformGrid>
+
+        <ContentControl 
+        Margin="10" 
+        DockPanel.Dock="Right" 
+        Content="{Binding ActiveViewModel}">
+
+        </ContentControl>
+    </DockPanel>
 </Window>
+
+
