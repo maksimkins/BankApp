@@ -12,7 +12,11 @@ public class Client
 {
     [Key]
     public int Id { get; set; }
+    [MaxLength(20)]
     public string Login { get; set; }
+    [MaxLength(20)]
     public string Password { get; set; }
     public double Account { get; set; } = 0;
+
+    public override string ToString() => $"{this?.Login}";
 }

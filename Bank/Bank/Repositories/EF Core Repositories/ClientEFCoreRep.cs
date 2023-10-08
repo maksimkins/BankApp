@@ -20,8 +20,16 @@ public class ClientEFCoreRep : IClientRep
 
     public void Add(Client client)
     {
-        context.Clients.Add(client);
-        this.context.SaveChanges();
+        try
+        {
+            context.Clients.Add(client);
+            this.context.SaveChanges();
+        }
+        catch(Exception)
+        {
+            throw new Exception("user with this login is already existed");
+        }
+        
     }
 
     public void AddToAccount(int id, double money)

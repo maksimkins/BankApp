@@ -56,4 +56,10 @@ public class LoanClientEFCoreRep : ILoanClientRep
 
         context.SaveChanges();
     }
+
+    public Client ReturnAsClient(int id)
+    {
+        LoanClient lc = this.GetById(id);
+        return context.Clients.First(c => c.Id == lc.ClientId);
+    }
 }

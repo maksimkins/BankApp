@@ -14,4 +14,5 @@ public interface IDebtorClientRep
     public void Add(DebtorClient client);
     public void PayForDebt(int id, double payment);
     public int GetIdByLoginPassword(string login, string password);
+    public Client ReturnAsClient(int id);
 }

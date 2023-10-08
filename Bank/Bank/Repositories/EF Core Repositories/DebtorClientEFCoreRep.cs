@@ -20,8 +20,15 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
 
     public void Add(DebtorClient client)
     {
-        context.DebtorClients.Add(client);
-        this.context.SaveChanges();
+        //try
+        //{
+            context.DebtorClients.Add(client);
+            this.context.SaveChanges();
+        //}
+        //catch (Exception)
+        //{
+        //    throw new Exception("user with this login is already existed");
+        //}
     }
 
     public IEnumerable<DebtorClient> GetAll() => context.DebtorClients.ToList();
@@ -59,5 +66,13 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
         context.DebtorClients.Remove(debtor);
 
         context.SaveChanges();
+    }
+
+    public Client ReturnAsClient(int id)
+    {
+        DebtorClient dc = this.GetById(id);
+        LoanClient lc = context.LoanClients.First(c => c.Id == dc.LoanClientId);
+
+        return context.Clients.First(c => c.Id == lc.ClientId);
     }
 }

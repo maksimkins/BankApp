@@ -30,6 +30,7 @@ public class AllClientsDbContext : DbContext
             .HasIndex(u => u.Login)
             .IsUnique();
 
+
         modelBuilder.Entity<LoanClient>()
             .HasIndex(u => u.ClientId)
             .IsUnique();
