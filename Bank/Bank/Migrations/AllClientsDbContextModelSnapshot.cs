@@ -65,14 +65,9 @@ namespace Bank.Migrations
                     b.Property<double>("DebtToReturn")
                         .HasColumnType("float");
 
-                    b.Property<int>("LoanClientId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
-
-                    b.HasIndex("LoanClientId")
+                    b.HasIndex("ClientId")
                         .IsUnique();
 
                     b.ToTable("DebtorClients");
@@ -123,15 +118,7 @@ namespace Bank.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Bank.Models.LoanClient", "LoanClient")
-                        .WithMany()
-                        .HasForeignKey("LoanClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Client");
-
-                    b.Navigation("LoanClient");
                 });
 
             modelBuilder.Entity("Bank.Models.LoanClient", b =>

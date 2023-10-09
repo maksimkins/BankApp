@@ -14,10 +14,6 @@ public class DebtorClient
     public int Id {  get; set; } 
     public double DebtToReturn { get; set; } = 0; // высчитывается при создании объекта
 
-    public int LoanClientId { get; set; }
-    public LoanClient LoanClient { get; set; }
-
-
     public int ClientId { get; set; }
     public Client Client { get; set; }
 

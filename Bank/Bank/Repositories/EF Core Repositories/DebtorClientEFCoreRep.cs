@@ -35,10 +35,10 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
 
     public DebtorClient GetById(int id) 
     {
-        LoanClient? loanclient = context.LoanClients.FirstOrDefault(c => c.ClientId == id)
-            ?? throw new Exception("there is no such user");
+    //    LoanClient? loanclient = context.LoanClients.FirstOrDefault(c => c.ClientId == id)
+    //        ?? throw new Exception("there is no such user");
 
-        return context.DebtorClients.FirstOrDefault(d => d.LoanClientId == loanclient.Id) 
+        return context.DebtorClients.FirstOrDefault(d => d.ClientId == id) 
             ?? throw new Exception("there is no such user"); 
     }
     public int GetIdByLoginPassword(string login, string password)
@@ -46,10 +46,10 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
         Client client = context.Clients.FirstOrDefault(c => c.Login == login && c.Password == password)
             ?? throw new Exception("there is no such user");
 
-        LoanClient loanclient = context.LoanClients.FirstOrDefault(l => l.ClientId == client.Id)
-            ?? throw new Exception("there is no such user");
+        //LoanClient loanclient = context.LoanClients.FirstOrDefault(l => l.ClientId == client.Id)
+        //    ?? throw new Exception("there is no such user");
 
-        DebtorClient debtorclient = context.DebtorClients.FirstOrDefault(d => d.LoanClientId == loanclient.Id)
+        DebtorClient debtorclient = context.DebtorClients.FirstOrDefault(d => d.ClientId == client.Id)
             ?? throw new Exception("there is no such user");
 
 
@@ -82,8 +82,7 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
     public Client ReturnAsClient(int id)
     {
         DebtorClient dc = this.GetById(id);
-        LoanClient lc = context.LoanClients.First(c => c.Id == dc.LoanClientId);
 
-        return context.Clients.First(c => c.Id == lc.ClientId);
+        return context.Clients.First(c => c.Id == dc.ClientId);
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bank.Migrations
 {
     [DbContext(typeof(AllClientsDbContext))]
-    [Migration("20231005145443_some new fixes AllDbContext")]
-    partial class somenewfixesAllDbContext
+    [Migration("20231008232918_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,11 +38,13 @@ namespace Bank.Migrations
 
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -60,15 +62,15 @@ namespace Bank.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
                     b.Property<double>("DebtToReturn")
                         .HasColumnType("float");
 
-                    b.Property<int>("LoanClientId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("LoanClientId")
+                    b.HasIndex("ClientId")
                         .IsUnique();
 
                     b.ToTable("DebtorClients");
@@ -113,13 +115,13 @@ namespace Bank.Migrations
 
             modelBuilder.Entity("Bank.Models.DebtorClient", b =>
                 {
-                    b.HasOne("Bank.Models.LoanClient", "LoanClient")
+                    b.HasOne("Bank.Models.Client", "Client")
                         .WithMany()
-                        .HasForeignKey("LoanClientId")
+                        .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("LoanClient");
+                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("Bank.Models.LoanClient", b =>

@@ -16,7 +16,11 @@ public class AllClientsDbContext : DbContext
     public DbSet<Client> Clients { get; set; }
     public DbSet<DebtorClient> DebtorClients { get; set; }
     public DbSet<LoanClient> LoanClients { get; set; }
-
+    //public AllClientsDbContext()
+    //{
+    //    this.Database.EnsureDeleted();
+    //    this.Database.EnsureCreated();
+    //}
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -36,13 +40,11 @@ public class AllClientsDbContext : DbContext
             .IsUnique();
 
         modelBuilder.Entity<DebtorClient>()
-            .HasIndex(u => u.LoanClientId)
-            .IsUnique();
-
-
-        modelBuilder.Entity<DebtorClient>()
             .HasIndex(u => u.ClientId)
             .IsUnique();
+
+
+      
 
         base.OnModelCreating(modelBuilder);
     }
