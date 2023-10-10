@@ -10,6 +10,32 @@
         <DataTemplate DataType="{x:Type vm:HomeViewModel}">
             <v:HomeVIew/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type vm:PayForLoanViewModel}">
+            <v:PayForLoanView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type vm:PayfordebtViewModel}">
+            <v:PayfordebtView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type vm:TransferViewModel}">
+            <v:TransferView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type vm:AddUserViewModel}">
+            <v:AddUserView/>
+        </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type vm:AddLoanClientViewModel}">
+            <v:AddLoanClientView/>
+        </DataTemplate>
+
+
+
     </Application.Resources>
 </Application>

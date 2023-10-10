@@ -31,6 +31,15 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
         //}
     }
 
+    public void DeleteById(int debtorId)
+    {
+        DebtorClient dc = this.GetById(debtorId);
+
+        context.DebtorClients.Remove(dc);
+
+        context.SaveChanges();
+    }
+
     public IEnumerable<DebtorClient> GetAll() => context.DebtorClients.ToList();
 
     public DebtorClient GetById(int id) 
@@ -38,7 +47,7 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
     //    LoanClient? loanclient = context.LoanClients.FirstOrDefault(c => c.ClientId == id)
     //        ?? throw new Exception("there is no such user");
 
-        return context.DebtorClients.FirstOrDefault(d => d.ClientId == id) 
+        return context.DebtorClients.FirstOrDefault(d => d.Id == id) 
             ?? throw new Exception("there is no such user"); 
     }
     public int GetIdByLoginPassword(string login, string password)
@@ -70,13 +79,15 @@ public class DebtorClientEFCoreRep : IDebtorClientRep
 
     public IEnumerable<Client> ReturAllnAsClient()
     {
-        List<Client> clients = new List<Client>();
+        List<Client> list = new List<Client>();
 
-        //foreach (var debtor in context.DebtorClients) 
-        //{
-        //    clients.Add(context.Clients.Where(c => c.Id == debtor.))
-        //} 
-        throw new Exception();
+        foreach (var lc in this.GetAll())
+        {
+            Client c = this.ReturnAsClient(lc.Id);
+            list.Add(c);
+        }
+
+        return list;
     }
 
     public Client ReturnAsClient(int id)

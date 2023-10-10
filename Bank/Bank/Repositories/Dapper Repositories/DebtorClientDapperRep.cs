@@ -18,7 +18,7 @@ public class DebtorClientDapperRep : IDebtorClientRep
 
     public DebtorClientDapperRep()
     {
-        this.con = new SqlConnection("Server=localhost;Database=Bank;Integrated Security=SSPI;TrustServerCertificate=True");
+        this.con = new SqlConnection("Server=localhost;User Id=admin;Password=admin;Database=Bank;TrustServerCertificate=True");
         this.con.Open();
     }
 
@@ -34,12 +34,19 @@ public class DebtorClientDapperRep : IDebtorClientRep
         con.Execute(command, parameter);
     }
 
+    public void DeleteById(int debtorId)
+    {
+        string command = @"delete on DebtorClients where Id = @id";
+
+        this.con.Execute(command, debtorId);
+    }
+
     public IEnumerable<DebtorClient> GetAll()
     {
         return con.Query<DebtorClient>("select * from DebtorClients");
     }
 
-    public DebtorClient GetById(int id) => con.QueryFirstOrDefault<DebtorClient>(@"select * from DebtorClients dc where dc.ClientId = @id", id)
+    public DebtorClient GetById(int id) => con.QueryFirstOrDefault<DebtorClient>(@"select * from DebtorClients dc where dc.Id = @id", id)
         ?? throw new Exception("there is no such user");
 
     public int GetIdByLoginPassword(string login, string password)
@@ -70,7 +77,13 @@ public class DebtorClientDapperRep : IDebtorClientRep
     {
         List<Client> list = new List<Client>();
 
-        foreach(var client in )
+        foreach(var dc in this.GetAll())
+        {
+            Client c = con.QueryFirstOrDefault<Client>("select * from Clients c where c.Id = @id", dc.ClientId);
+            list.Add(c);
+        }
+
+        return list;
     }
 
     public Client ReturnAsClient(int id)

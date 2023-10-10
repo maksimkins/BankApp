@@ -17,7 +17,7 @@ public class ClientDapperRep : IClientRep
 
     public ClientDapperRep()
     {
-        this.con = new SqlConnection("Server=localhost;Database=Bank;Integrated Security=SSPI;TrustServerCertificate=True");
+        this.con = new SqlConnection("Server=localhost;User Id=admin;Password=admin;Database=Bank;TrustServerCertificate=True");
         this.con.Open();
     }
     public void Add(Client client)
@@ -82,11 +82,11 @@ public class ClientDapperRep : IClientRep
 
     public int GetIdByLoginPassword(string login, string password)
     {
-        string command = "select * from Clients c where c.Login = @login and c.Password = @password";
+        string command = "select Id from Clients c where c.Login = @login and c.Password = @password";
 
         DynamicParameters parameter = new DynamicParameters();
-        parameter.Add("@money", login);
-        parameter.Add("@id", password);
+        parameter.Add("@login", login);
+        parameter.Add("@password", password);
 
         try
         {

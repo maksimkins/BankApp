@@ -5,14 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="414.04" d:DesignWidth="700">
+             d:DesignHeight="400" d:DesignWidth="500">
     
     <Grid Background="White">
-        <Label 
-           Margin="10" Content="Press Buttons"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-           FontSize="30"
-           />
+        
     </Grid>
 </UserControl>

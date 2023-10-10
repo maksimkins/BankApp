@@ -4,31 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bank"
+        xmlns:self ="clr-namespace:Bank.ViewModels"
+        xmlns:c ="clr-namespace:Bank.Models"
         mc:Ignorable="d"
-        Height="450" Width="800"
+        Height="470" Width="1000"
         ResizeMode="NoResize">
     <DockPanel>
+        <UniformGrid  DockPanel.Dock="Right" Width="150" Rows="5" Margin="20" >
+            
+            <Button Content="Pay for Loan" Command="{Binding PayForLoan}"/>
+            <Button Content="Pay for Debt" Command="{Binding PayForDebt}"/>
+            <Button Content="Transfer" Command="{Binding Transfer}"/>
+            <Button Content="Add Loaner" Command="{Binding AddLoanClient}"/>
+            <Button Content="Add User" Command="{Binding AddUser}"/>
+            
+        </UniformGrid>
+
+        <!--<Label DockPanel.Dock="Bottom" Height="30" Background="#FFE2DEDE"/>-->
+
+        <UniformGrid Margin="10" DockPanel.Dock="Left" Rows="3" Width="160" Height="400">
+
+            
 
 
-        <UniformGrid Margin="10" DockPanel.Dock="Left" Rows="1" Width="60" Height="400">
-            <!--<Button Content="Info" Command="{Binding InfoCommand}"/>
-            <Button Content="Teachers" Command="{Binding TeachersCommand}"/>
-            <Button Content="Groups" Command="{Binding GroupsCommand}"/>
-            <Button Content="Students" Command="{Binding StudentsCommand}"/>-->
-            <!--<TreeView ItemsSource="{Binding MainViewModel}">
-                <TreeView.Resources>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Names}" DataType="{x:Type local:PersonViewModel}">
-                        <TextBlock Text="{Binding CountryType}" />
+
+        <TreeView Margin="1" ItemsSource="{Binding Clients}">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Clients}">
+                        <TextBlock Text="{Binding Login}"/>
                     </HierarchicalDataTemplate>
-                </TreeView.Resources>
-            </TreeView>-->
+            </TreeView.ItemTemplate>
+         </TreeView>
+
+
+
+            <TreeView Margin="1" ItemsSource="{Binding LoanClients}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding LoanClients}">
+                        <TextBlock Text="{Binding Login}"/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+
+
+            <TreeView Margin="1" ItemsSource="{Binding DebtorClients}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding DebtorClients}">
+                        <TextBlock Text="{Binding Login}"/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
 
 
         </UniformGrid>
 
-        <ContentControl 
-        Margin="10" 
-        DockPanel.Dock="Right" 
+        <ContentControl Width="560" Height="400"
+                        Margin="5" 
+        DockPanel.Dock="Top" 
         Content="{Binding ActiveViewModel}">
 
         </ContentControl>

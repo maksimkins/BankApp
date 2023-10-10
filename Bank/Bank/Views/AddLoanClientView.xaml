@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Bank.Views.AddLoanClientView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bank.Views"
+             mc:Ignorable="d" 
+                   Background="White">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="42" 
+                 Margin="155,98,0,0" TextWrapping="Wrap" 
+                 Text="{Binding ClientId}" VerticalAlignment="Top" Width="355"/>
+        <TextBox HorizontalAlignment="Left" Height="45" 
+                 Margin="155,155,0,0" TextWrapping="Wrap" 
+                 Text="{Binding MonthDuration}" VerticalAlignment="Top" Width="355"/>
+        <Label Content="ClientId" HorizontalAlignment="Left" 
+               Height="41" Margin="34,98,0,0" VerticalAlignment="Top"
+               Width="78"/>
+        <Label Content="MonthDurtion" HorizontalAlignment="Left" 
+               Height="44" Margin="34,0,0,0" VerticalAlignment="Center"
+               Width="96"/>
+
+
+        <Button Content="Add" Command="{Binding CommandAddLoanClient}"
+                HorizontalAlignment="Left" Height="36" Margin="332,320,0,0" VerticalAlignment="Top" Width="89"/>
+        <Button Content="Return"
+                Command="{Binding CommandReturn}"
+                HorizontalAlignment="Left" Height="36" Margin="481,320,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label Content="Percentes" HorizontalAlignment="Left" 
+            Height="45" Margin="34,227,0,0" VerticalAlignment="Top"
+            Width="96"/>
+        <TextBox HorizontalAlignment="Left" Height="45" 
+            Margin="153,227,0,0" TextWrapping="Wrap" 
+            Text="{Binding Percentes}" VerticalAlignment="Top" Width="355"/>
+        <TextBox HorizontalAlignment="Left" Height="41" 
+            Margin="155,32,0,0" TextWrapping="Wrap" 
+            Text="{Binding Loan}" VerticalAlignment="Top" Width="355"/>
+        <Label Content="Loan" HorizontalAlignment="Left" 
+            Height="41" Margin="34,35,0,0" VerticalAlignment="Top"
+            Width="78"/>
+
+    </Grid>
+</UserControl>

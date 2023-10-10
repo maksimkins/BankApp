@@ -16,4 +16,5 @@ public interface IDebtorClientRep
     public int GetIdByLoginPassword(string login, string password);
     public Client ReturnAsClient(int id);
     public IEnumerable<Client> ReturAllnAsClient();
+    public void DeleteById(int debtorId);
 }

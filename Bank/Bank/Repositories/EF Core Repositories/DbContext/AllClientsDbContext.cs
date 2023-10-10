@@ -25,7 +25,7 @@ public class AllClientsDbContext : DbContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        optionsBuilder.UseSqlServer(connectionString: "Server=localhost;Database=Bank;Integrated Security=SSPI;TrustServerCertificate=True");//User Id=admin;Password=admin;
+        optionsBuilder.UseSqlServer(connectionString: "Server=localhost;User Id=admin;Password=admin;Database=Bank;TrustServerCertificate=True");//User Id=admin;Password=admin;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

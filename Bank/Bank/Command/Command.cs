@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Bank.Command;
@@ -31,6 +32,13 @@ public class Command : ICommand
 
     public void Execute(object? parameter)
     {
-        this.execute.Invoke();
+        try
+        {
+            this.execute.Invoke();
+        }catch(Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+        
     }
 }

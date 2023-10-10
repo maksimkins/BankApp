@@ -1,5 +1,4 @@
-﻿using Bank.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bank;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace Bank.Views
 {
-    public MainWindow()
+    /// <summary>
+    /// Логика взаимодействия для PayfordebtView.xaml
+    /// </summary>
+    public partial class PayfordebtView : UserControl
     {
-        InitializeComponent();
-        //this.Content = App.Container.GetInstance<MainViewModel>();
+        public PayfordebtView()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -51,6 +51,11 @@ public partial class App : Application
 
         Container.RegisterSingleton<HomeViewModel>();
         Container.RegisterSingleton<MainViewModel>();
+        Container.RegisterSingleton<PayForLoanViewModel>();
+        Container.RegisterSingleton<PayfordebtViewModel>();
+        Container.RegisterSingleton<TransferViewModel>();
+        Container.RegisterSingleton<AddUserViewModel>();
+        Container.RegisterSingleton<AddLoanClientViewModel>();
         
         
 

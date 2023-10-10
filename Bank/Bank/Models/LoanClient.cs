@@ -23,6 +23,10 @@ namespace Bank.Models
         public int ClientId { get; set; }      
         public Client Client { get; set; }
 
-        public bool MustPayForThisMonth() => (DateTime.Now.Month - LoanGotDate.Month) == 0;
+        public bool MustPayForThisMonth() => (DateTime.Now.Month - LoanGotDate.Month) > Month;
+
+        public double NeedToPayPerMonth() => (Math.Round((this.Loan / this.MonthDuration) * (this.Perecents / 100 + 1)));
+
+        public bool IsDebtor() => DateTime.Now.Month > LoanGotDate.Month;
     }
 }
