@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank.ViewModels;
 using Bank.Command;
+using Bank.Models;
 using Bank.Repositories.Base;
 using Bank.ViewModels.Base;
 using System.Windows;
@@ -86,6 +87,11 @@ class AddLoanClientViewModel : ViewModelBase
         {
             if (!int.TryParse(Percentes, out int percentes) || !int.TryParse(MonthDuration, out int monthDuration) || !int.TryParse(ClientId, out int clientid) || !double.TryParse(Loan, out double l))
                 throw new Exception("credentials error");
+
+            IEnumerable<LoanClient> lclist = lcrep.GetAll();
+
+            if(lclist.Any(lc => lc.ClientId == clientid))
+                throw new Exception("Client already has loan error");
 
             lcrep.Add(new Models.LoanClient() { Perecents = percentes, MonthDuration = monthDuration, ClientId = clientid,  Loan = l, LoanGotDate = DateTime.Now, Month = 0, PaidPartOfLoan = 0});
             MonthDuration = "";
